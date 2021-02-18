@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Holographic Audio Visualizer</title>
+    <script src='./three.min.js'></script>
+     <script type="text/javascript" src="https://connect.soundcloud.com/sdk.js"></script>
+     <style type="text/css">
+       body {
+        margin: 0;
+       }
+
+       .fullscreen {
+        transform: scaleX(-1);
+        position: absolute;
+        top: 30px;
+        left:0;
+        right:0;
+        bottom:0;
+       }
+        .cover-art {
+          transform: scaleX(-1);
+          filter: FlipH;
+          padding: 50px;
+          padding-left: 300px;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          height: 150px;
+          width: 150px;
+          z-index: 2;
+        }
+        .hidden {
+          display: none;
+        }
+
+        .black {
+          background-color: black;
+        }
+        ::selection { background: white; /* WebKit/Blink Browsers */ } 
+     </style>
+  </head>
+  <body class="black">
+    <audio class="hidden" id="player" controls="" autoplay="" preload autobuffer></audio>
+    <img src="" id="cover-art" class="cover-art"></img>
+    <div id="cube" class="fullscreen"></div>
+    <div id="particle" class="fullscreen"></div>
+    <div id="spectrum" class="fullscreen"></div>
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+  </body>
+</html>
